@@ -70,7 +70,13 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             microphoneButton.isEnabled = false
             microphoneButton.setImage(UIImage(named: "mic"), for: .normal)
             
-
+            let audioSession = AVAudioSession.sharedInstance()
+            
+            do {
+                try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+            } catch let error as NSError {
+                print("audioSession error: \(error.localizedDescription)")
+            }
         } else {
             startRecording()
             print(speechSynthesizer.isSpeaking)
