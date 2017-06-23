@@ -22,80 +22,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What can I help you with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvP-un-Lqi">
-                                <rect key="frame" x="37.5" y="35" width="245" height="92"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="JfD-rZ-NCL"/>
-                                    <constraint firstAttribute="width" constant="245" id="vdO-aE-DiM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="28"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This is the UITextView" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dl3-xq-pMR">
-                                <rect key="frame" x="16" y="163" width="288" height="200"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Question" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dl3-xq-pMR">
+                                <rect key="frame" x="16" y="185" width="288" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="cJj-hC-fx0"/>
+                                    <constraint firstAttribute="height" constant="150" id="cJj-hC-fx0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nbt-tz-xRA">
-                                <rect key="frame" x="16" y="373" width="288" height="105"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Answer" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nbt-tz-xRA">
+                                <rect key="frame" x="16" y="345" width="288" height="133"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.95594149827957153" green="0.16133677959442139" blue="0.38354521989822388" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="justine" translatesAutoresizingMaskIntoConstraints="NO" id="jsi-tj-5yO">
+                                <rect key="frame" x="0.0" y="30" width="320" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="F0N-Z9-wAM"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kW-uD-4xY" customClass="SpeakerAnimView" customModule="justine" customModuleProvider="target">
+                                <rect key="frame" x="100" y="453" width="120" height="120"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="3sz-J1-ZOL"/>
+                                    <constraint firstAttribute="width" constant="120" id="t6V-02-Dga"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqT-2C-1zh">
                                 <rect key="frame" x="135" y="488" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="9ax-AH-wpI"/>
                                     <constraint firstAttribute="height" constant="50" id="Vp7-Bm-aGs"/>
                                 </constraints>
-                                <state key="normal" image="mic"/>
                                 <connections>
                                     <action selector="microphoneTapped:" destination="Yv0-Yn-W7l" eventType="touchUpInside" id="njE-le-VUq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTQ-jI-hsD">
-                                <rect key="frame" x="258" y="97" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="proba:" destination="Yv0-Yn-W7l" eventType="touchUpInside" id="dLV-O6-VgK"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="jsi-tj-5yO" firstAttribute="leading" secondItem="Nr0-8S-V1k" secondAttribute="leading" id="2mt-xW-4un"/>
+                            <constraint firstItem="4kW-uD-4xY" firstAttribute="centerY" secondItem="GqT-2C-1zh" secondAttribute="centerY" id="6CP-1K-DPx"/>
                             <constraint firstItem="nbt-tz-xRA" firstAttribute="top" secondItem="Dl3-xq-pMR" secondAttribute="bottom" constant="10" id="ENF-X0-Nwb"/>
                             <constraint firstItem="GqT-2C-1zh" firstAttribute="centerX" secondItem="Nr0-8S-V1k" secondAttribute="centerX" id="FDn-o7-kH9"/>
                             <constraint firstItem="GqT-2C-1zh" firstAttribute="top" secondItem="nbt-tz-xRA" secondAttribute="bottom" constant="10" id="FEE-JT-ily"/>
-                            <constraint firstItem="Dl3-xq-pMR" firstAttribute="top" secondItem="KvP-un-Lqi" secondAttribute="bottom" constant="36" id="FZE-qm-YFm"/>
+                            <constraint firstItem="Dl3-xq-pMR" firstAttribute="top" secondItem="jsi-tj-5yO" secondAttribute="bottom" constant="5" id="KnF-7P-OKh"/>
+                            <constraint firstItem="4kW-uD-4xY" firstAttribute="centerX" secondItem="GqT-2C-1zh" secondAttribute="centerX" id="LOz-ae-jmq"/>
                             <constraint firstItem="nbt-tz-xRA" firstAttribute="leading" secondItem="Nr0-8S-V1k" secondAttribute="leadingMargin" id="Nyl-7d-UX1"/>
-                            <constraint firstItem="KvP-un-Lqi" firstAttribute="top" secondItem="Nt5-ar-LHx" secondAttribute="bottom" constant="15" id="QiZ-Of-3vl"/>
-                            <constraint firstItem="KvP-un-Lqi" firstAttribute="centerX" secondItem="Nr0-8S-V1k" secondAttribute="centerX" id="WJH-a8-qLb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dl3-xq-pMR" secondAttribute="trailing" id="emH-g5-g4P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nbt-tz-xRA" secondAttribute="trailing" id="gUk-gN-Aif"/>
+                            <constraint firstAttribute="trailing" secondItem="jsi-tj-5yO" secondAttribute="trailing" id="hC8-pi-rKZ"/>
                             <constraint firstItem="8pX-Ub-760" firstAttribute="top" secondItem="GqT-2C-1zh" secondAttribute="bottom" constant="30" id="i28-7u-fd7"/>
-                            <constraint firstItem="Dl3-xq-pMR" firstAttribute="centerX" secondItem="KvP-un-Lqi" secondAttribute="centerX" id="ooi-Vt-u4V"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Dl3-xq-pMR" secondAttribute="leading" id="tzH-PQ-A7T"/>
+                            <constraint firstItem="jsi-tj-5yO" firstAttribute="top" secondItem="Nt5-ar-LHx" secondAttribute="bottom" constant="10" id="vT5-Ha-azj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="answerTextView" destination="nbt-tz-xRA" id="rb1-ov-n3I"/>
                         <outlet property="microphoneButton" destination="GqT-2C-1zh" id="9Ru-A0-sCI"/>
                         <outlet property="questionTextView" destination="Dl3-xq-pMR" id="oDI-zK-ey2"/>
+                        <outlet property="speakerAnim" destination="4kW-uD-4xY" id="fTF-jV-mm5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NsN-yh-6Ml" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+            <point key="canvasLocation" x="135" y="138.38028169014083"/>
         </scene>
     </scenes>
     <resources>
-        <image name="mic" width="29" height="51"/>
+        <image name="justine" width="640" height="382"/>
     </resources>
 </document>
