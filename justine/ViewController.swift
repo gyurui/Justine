@@ -56,6 +56,10 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             }
         }
     }
+    @IBAction func proba(_ sender: Any) {
+        self.answerTextView.text = "Oké kinyitom neked az ajtót."
+        self.speak()
+    }
     
     @IBAction func microphoneTapped(_ sender: AnyObject) {
         if audioEngine.isRunning {
@@ -141,8 +145,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
             microphoneButton.isEnabled = true
-            self.answerTextView.text = "Oké kinyitom neked az ajtót."
-            self.speak()
         } else {
             microphoneButton.isEnabled = false
         }
@@ -187,8 +189,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             }
             
             
-        }
-        else{
+        } else {
             speechSynthesizer.continueSpeaking()
         }
         
