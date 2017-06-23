@@ -18,7 +18,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
     @IBOutlet var speakerAnim: SpeakerAnimView!
 
     let speechSynthesizer = AVSpeechSynthesizer()
-
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "hu-HU"))!
 
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -26,6 +25,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
     private let audioEngine = AVAudioEngine()
 
     var player: AVAudioPlayer!
+    let isSent: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +36,12 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
         let audioSession = AVAudioSession.sharedInstance()  //2
         do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+
         } catch {
             print("audioSession properties weren't set because of an error.")
         }
         
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
-
             var isButtonEnabled = false
 
             switch authStatus {
@@ -66,15 +66,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             }
         }
     }
-    @IBAction func proba(_ sender: Any) {
-        NetworkManager.sharedInstance.postText(speechText: questionTextView.text, success: { (answer) in
-            self.answerTextView.text = answer
-            self.speak()
-        }) { (error) in
-            self.answerTextView.text = "Valami hiba tortent"
-            self.speak()
-        }
-    }
+
 
     @IBAction func microphoneTapped(_ sender: AnyObject) {
         if audioEngine.isRunning {
@@ -86,18 +78,26 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             let audioSession = AVAudioSession.sharedInstance()  //2
             do {
                 try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+                try audioSession.setActive(false)
+                
             } catch {
                 print("audioSession properties weren't set because of an error.")
             }
             
-            
-            NetworkManager.sharedInstance.postText(speechText: questionTextView.text, success: { (answer) in
-                self.answerTextView.text = answer
-                self.speak()
-            }) { (error) in
-                self.answerTextView.text = "Valami hiba tortent"
+            if self.questionTextView.text != "" || self.questionTextView.text != nil  {
+                NetworkManager.sharedInstance.postText(speechText: questionTextView.text, success: { (answer) in
+                    self.answerTextView.text = answer
+                    self.speak()
+                }) { (error) in
+                    self.answerTextView.text = "Valami hiba történt."
+                    self.speak()
+                }
+            } else {
+                self.answerTextView.text = "Bocsi nem értettem mit mondtál?"
                 self.speak()
             }
+            
+
             
         } else {
             startRecording()
@@ -108,11 +108,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
 
     func playSound() {
         let url = Bundle.main.url(forResource: "ClickSound", withExtension: "mp3")!
-
         do {
             player = try AVAudioPlayer(contentsOf: url)
             guard let player = player else { return }
-
             player.prepareToPlay()
             player.play()
         } catch let error as NSError {
@@ -129,8 +127,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
         
         let audioSession = AVAudioSession.sharedInstance()  //2
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+
         } catch {
             print("audioSession properties weren't set because of an error.")
         }
@@ -185,8 +184,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
 
     }
 
-
-
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
             microphoneButton.isEnabled = true
@@ -194,9 +191,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             microphoneButton.isEnabled = false
         }
     }
-
-
-
 
     func speak() {
         if !speechSynthesizer.isSpeaking {
