@@ -8,13 +8,17 @@
 
 import UIKit
 import Speech
+import AVFoundation
 
-class ViewController: UIViewController, SFSpeechRecognizerDelegate {
+class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynthesizerDelegate {
     
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var questionTextView: UITextView!
+    @IBOutlet weak var answerTextView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
     
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))!
+    let speechSynthesizer = AVSpeechSynthesizer()
+    
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "hu-HU"))!
     
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -24,7 +28,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         super.viewDidLoad()
         
         microphoneButton.isEnabled = false
-        
         speechRecognizer.delegate = self
         
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
@@ -59,11 +62,12 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             microphoneButton.isEnabled = false
-            microphoneButton.setTitle("Start Recording", for: .normal)
+            microphoneButton.setImage(UIImage(named: "mic"), for: .normal)
         } else {
             startRecording()
-            microphoneButton.setTitle("Stop Recording", for: .normal)
+            microphoneButton.setImage(UIImage(named: "micRecording"), for: .normal)
         }
+
     }
     
     func startRecording() {
@@ -100,7 +104,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             
             if result != nil {
                 
-                self.textView.text = result?.bestTranscription.formattedString  //9
+                self.questionTextView.text = result?.bestTranscription.formattedString  //9
                 isFinal = (result?.isFinal)!
             }
             
@@ -128,16 +132,79 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
             print("audioEngine couldn't start because of an error.")
         }
         
-        textView.text = "Say something, I'm listening!"
+        questionTextView.text = "Hallgatlak! ;)"
         
     }
+    
+    
     
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if available {
             microphoneButton.isEnabled = true
+            self.answerTextView.text = "Oké kinyitom neked az ajtót."
+            self.speak()
         } else {
             microphoneButton.isEnabled = false
         }
     }
+    
+    
+    
+    
+    func speak() {
+        if !speechSynthesizer.isSpeaking {
+            /**
+             let speechUtterance = AVSpeechUtterance(string: tvEditor.text)
+             speechUtterance.rate = rate
+             speechUtterance.pitchMultiplier = pitch
+             speechUtterance.volume = volume
+             speechSynthesizer.speakUtterance(speechUtterance)
+             */
+            let rate = AVSpeechUtteranceDefaultSpeechRate
+            let pitch: Float = 1.0
+            let volume: Float = 1.0
+            
+            let textParagraphs = answerTextView.text.components(separatedBy: "\n")
+            
+            let totalUtterances = textParagraphs.count
+            let currentUtterance = 0
+            var totalTextLength = 0
+            let spokenTextLengths = 0
+            
+            for pieceOfText in textParagraphs {
+                let speechUtterance = AVSpeechUtterance(string: pieceOfText)
+                speechUtterance.rate = rate
+                speechUtterance.pitchMultiplier = pitch
+                speechUtterance.volume = volume
+                speechUtterance.postUtteranceDelay = 0.005
+                
+                let voice = AVSpeechSynthesisVoice(language: "hu-HU")
+                speechUtterance.voice = voice
+                
+                totalTextLength = totalTextLength + pieceOfText.utf16.count
+                
+                speechSynthesizer.speak(speechUtterance)
+            }
+            
+            
+        }
+        else{
+            speechSynthesizer.continueSpeaking()
+        }
+        
+    }
+    
+    
+    func pauseSpeech() {
+        speechSynthesizer.pauseSpeaking(at: AVSpeechBoundary.word)
+
+    }
+    
+    
+    func stopSpeech() {
+        speechSynthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
+    }
+    
 }
+
 

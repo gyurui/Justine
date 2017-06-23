@@ -102,7 +102,7 @@
 				TargetAttributes = {
 					8C46D0E01EFD0610001361F0 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = T3N6Q5M62M;
+						DevelopmentTeam = 36HHSH6BD2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -271,7 +271,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = T3N6Q5M62M;
+				DEVELOPMENT_TEAM = 36HHSH6BD2;
 				INFOPLIST_FILE = justine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oncehack.justine;
@@ -284,7 +284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = T3N6Q5M62M;
+				DEVELOPMENT_TEAM = 36HHSH6BD2;
 				INFOPLIST_FILE = justine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oncehack.justine;
@@ -312,6 +312,7 @@
 				8C46D0F51EFD0610001361F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Yv0-Yn-W7l">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,63 +11,83 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="K7K-aw-hJM">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="justine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Yv0-Yn-W7l" customClass="ViewController" customModule="justine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="Nt5-ar-LHx"/>
+                        <viewControllerLayoutGuide type="bottom" id="8pX-Ub-760"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="w4x-is-wZj">
+                    <view key="view" contentMode="scaleToFill" id="Nr0-8S-V1k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What can I help you with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEj-Be-eWN">
-                                <rect key="frame" x="37.5" y="59" width="245" height="92"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What can I help you with?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvP-un-Lqi">
+                                <rect key="frame" x="37.5" y="35" width="245" height="92"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="Atm-BI-QgE"/>
-                                    <constraint firstAttribute="width" constant="245" id="uiD-K8-phW"/>
+                                    <constraint firstAttribute="height" constant="92" id="JfD-rZ-NCL"/>
+                                    <constraint firstAttribute="width" constant="245" id="vdO-aE-DiM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is the UITextView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b7r-zu-jSa">
-                                <rect key="frame" x="16" y="187" width="288" height="291"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This is the UITextView" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dl3-xq-pMR">
+                                <rect key="frame" x="16" y="163" width="288" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="291" id="S1u-7l-rcs"/>
+                                    <constraint firstAttribute="height" constant="200" id="cJj-hC-fx0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sWS-FI-viM">
-                                <rect key="frame" x="106" y="528" width="108" height="30"/>
-                                <state key="normal" title="Start Recording"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nbt-tz-xRA">
+                                <rect key="frame" x="16" y="373" width="288" height="105"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqT-2C-1zh">
+                                <rect key="frame" x="135" y="488" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="9ax-AH-wpI"/>
+                                    <constraint firstAttribute="height" constant="50" id="Vp7-Bm-aGs"/>
+                                </constraints>
+                                <state key="normal" image="mic"/>
                                 <connections>
-                                    <action selector="microphoneTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qqH-XU-qoD"/>
+                                    <action selector="microphoneTapped:" destination="Yv0-Yn-W7l" eventType="touchUpInside" id="njE-le-VUq"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="b7r-zu-jSa" secondAttribute="trailing" id="7WP-ou-wfE"/>
-                            <constraint firstItem="sWS-FI-viM" firstAttribute="centerX" secondItem="w4x-is-wZj" secondAttribute="centerX" id="7cK-Ub-qn6"/>
-                            <constraint firstItem="sWS-FI-viM" firstAttribute="top" secondItem="b7r-zu-jSa" secondAttribute="bottom" constant="50" id="KvX-TZ-emK"/>
-                            <constraint firstItem="gEj-Be-eWN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="39" id="M6q-wa-K4W"/>
-                            <constraint firstItem="b7r-zu-jSa" firstAttribute="centerX" secondItem="gEj-Be-eWN" secondAttribute="centerX" id="Puv-pp-PcS"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="b7r-zu-jSa" secondAttribute="leading" id="bfm-N3-tfc"/>
-                            <constraint firstItem="gEj-Be-eWN" firstAttribute="centerX" secondItem="w4x-is-wZj" secondAttribute="centerX" id="lPn-Sz-MYa"/>
-                            <constraint firstItem="b7r-zu-jSa" firstAttribute="top" secondItem="gEj-Be-eWN" secondAttribute="bottom" constant="36" id="uEh-7a-aRx"/>
+                            <constraint firstItem="nbt-tz-xRA" firstAttribute="top" secondItem="Dl3-xq-pMR" secondAttribute="bottom" constant="10" id="ENF-X0-Nwb"/>
+                            <constraint firstItem="GqT-2C-1zh" firstAttribute="centerX" secondItem="Nr0-8S-V1k" secondAttribute="centerX" id="FDn-o7-kH9"/>
+                            <constraint firstItem="GqT-2C-1zh" firstAttribute="top" secondItem="nbt-tz-xRA" secondAttribute="bottom" constant="10" id="FEE-JT-ily"/>
+                            <constraint firstItem="Dl3-xq-pMR" firstAttribute="top" secondItem="KvP-un-Lqi" secondAttribute="bottom" constant="36" id="FZE-qm-YFm"/>
+                            <constraint firstItem="nbt-tz-xRA" firstAttribute="leading" secondItem="Nr0-8S-V1k" secondAttribute="leadingMargin" id="Nyl-7d-UX1"/>
+                            <constraint firstItem="KvP-un-Lqi" firstAttribute="top" secondItem="Nt5-ar-LHx" secondAttribute="bottom" constant="15" id="QiZ-Of-3vl"/>
+                            <constraint firstItem="KvP-un-Lqi" firstAttribute="centerX" secondItem="Nr0-8S-V1k" secondAttribute="centerX" id="WJH-a8-qLb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dl3-xq-pMR" secondAttribute="trailing" id="emH-g5-g4P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nbt-tz-xRA" secondAttribute="trailing" id="gUk-gN-Aif"/>
+                            <constraint firstItem="8pX-Ub-760" firstAttribute="top" secondItem="GqT-2C-1zh" secondAttribute="bottom" constant="30" id="i28-7u-fd7"/>
+                            <constraint firstItem="Dl3-xq-pMR" firstAttribute="centerX" secondItem="KvP-un-Lqi" secondAttribute="centerX" id="ooi-Vt-u4V"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Dl3-xq-pMR" secondAttribute="leading" id="tzH-PQ-A7T"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="microphoneButton" destination="sWS-FI-viM" id="3ME-Iy-thG"/>
-                        <outlet property="textView" destination="b7r-zu-jSa" id="iUy-Zs-HQU"/>
+                        <outlet property="answerTextView" destination="nbt-tz-xRA" id="rb1-ov-n3I"/>
+                        <outlet property="microphoneButton" destination="GqT-2C-1zh" id="9Ru-A0-sCI"/>
+                        <outlet property="questionTextView" destination="Dl3-xq-pMR" id="oDI-zK-ey2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NsN-yh-6Ml" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mic" width="29" height="51"/>
+    </resources>
 </document>
