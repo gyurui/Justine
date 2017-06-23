@@ -8,17 +8,20 @@
 
 import UIKit
 import Speech
+import AVKit
 
 class ViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
     
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))!
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "hu-HU"))!
     
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+
+    var player: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +66,20 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate {
         } else {
             startRecording()
             microphoneButton.setTitle("Stop Recording", for: .normal)
+        }
+    }
+    
+    func playSound() {
+        let url = Bundle.main.url(forResource: "ClickSound", withExtension: "mp3")!
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            guard let player = player else { return }
+            
+            player.prepareToPlay()
+            player.play()
+        } catch let error as NSError {
+            print(error.description)
         }
     }
     
