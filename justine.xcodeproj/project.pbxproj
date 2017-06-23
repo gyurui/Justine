@@ -140,7 +140,7 @@
 				TargetAttributes = {
 					8C46D0E01EFD0610001361F0 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 36HHSH6BD2;
+						DevelopmentTeam = T3N6Q5M62M;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -359,7 +359,7 @@
 			baseConfigurationReference = DCBA65C187E01948F0945657 /* Pods-justine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 36HHSH6BD2;
+				DEVELOPMENT_TEAM = T3N6Q5M62M;
 				INFOPLIST_FILE = justine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oncehack.justine;
@@ -373,7 +373,7 @@
 			baseConfigurationReference = 2BBC0734BC6B74500B9A97C3 /* Pods-justine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 36HHSH6BD2;
+				DEVELOPMENT_TEAM = T3N6Q5M62M;
 				INFOPLIST_FILE = justine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oncehack.justine;

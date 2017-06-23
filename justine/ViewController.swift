@@ -8,7 +8,7 @@
 
 import UIKit
 import Speech
-import AVFoundation
+import AVKit
 
 class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynthesizerDelegate {
 
@@ -69,8 +69,11 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             recognitionRequest?.endAudio()
             microphoneButton.isEnabled = false
             microphoneButton.setImage(UIImage(named: "mic"), for: .normal)
+            
+
         } else {
             startRecording()
+            print(speechSynthesizer.isSpeaking)
             microphoneButton.setImage(UIImage(named: "micRecording"), for: .normal)
         }
 
@@ -99,7 +102,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
 
         let audioSession = AVAudioSession.sharedInstance()  //2
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryRecord)
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try audioSession.setMode(AVAudioSessionModeMeasurement)
             try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
         } catch {
