@@ -71,7 +71,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             microphoneButton.setImage(UIImage(named: "mic"), for: .normal)
             
             let audioSession = AVAudioSession.sharedInstance()
-            
             do {
                 try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
             } catch let error as NSError {
@@ -108,6 +107,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
 
         let audioSession = AVAudioSession.sharedInstance()  //2
         do {
+            try audioSession.overrideOutputAudioPort(.none)
             try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try audioSession.setMode(AVAudioSessionModeMeasurement)
             try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
