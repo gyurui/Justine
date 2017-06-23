@@ -15,6 +15,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var answerTextView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
+    @IBOutlet var speakerAnim: SpeakerAnimView!
 
     let speechSynthesizer = AVSpeechSynthesizer()
 
@@ -65,9 +66,9 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
     @IBAction func microphoneTapped(_ sender: AnyObject) {
         if audioEngine.isRunning {
             audioEngine.stop()
+            speakerAnim.stopAnimation()
             recognitionRequest?.endAudio()
             microphoneButton.isEnabled = false
-            microphoneButton.setImage(UIImage(named: "mic"), for: .normal)
             
             let audioSession = AVAudioSession.sharedInstance()
             do {
@@ -86,8 +87,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             
         } else {
             startRecording()
+            speakerAnim.startAnimation()
             print(speechSynthesizer.isSpeaking)
-            microphoneButton.setImage(UIImage(named: "micRecording"), for: .normal)
         }
 
     }
