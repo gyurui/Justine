@@ -31,7 +31,14 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
 
         microphoneButton.isEnabled = false
         speechRecognizer.delegate = self
-
+        
+        let audioSession = AVAudioSession.sharedInstance()  //2
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+        
         SFSpeechRecognizer.requestAuthorization { (authStatus) in
 
             var isButtonEnabled = false
@@ -59,7 +66,13 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
         }
     }
     @IBAction func proba(_ sender: Any) {
-
+        NetworkManager.sharedInstance.postText(speechText: questionTextView.text, success: { (answer) in
+            self.answerTextView.text = answer
+            self.speak()
+        }) { (error) in
+            self.answerTextView.text = "Valami hiba tortent"
+            self.speak()
+        }
     }
 
     @IBAction func microphoneTapped(_ sender: AnyObject) {
@@ -69,12 +82,13 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             microphoneButton.isEnabled = false
             microphoneButton.setImage(UIImage(named: "mic"), for: .normal)
             
-            let audioSession = AVAudioSession.sharedInstance()
+            let audioSession = AVAudioSession.sharedInstance()  //2
             do {
-                try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
-            } catch let error as NSError {
-                print("audioSession error: \(error.localizedDescription)")
+                try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+            } catch {
+                print("audioSession properties weren't set because of an error.")
             }
+            
             
             NetworkManager.sharedInstance.postText(speechText: questionTextView.text, success: { (answer) in
                 self.answerTextView.text = answer
@@ -89,7 +103,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             print(speechSynthesizer.isSpeaking)
             microphoneButton.setImage(UIImage(named: "micRecording"), for: .normal)
         }
-
     }
 
     func playSound() {
@@ -112,12 +125,10 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             recognitionTask?.cancel()
             recognitionTask = nil
         }
-
+        
         let audioSession = AVAudioSession.sharedInstance()  //2
         do {
-            try audioSession.overrideOutputAudioPort(.none)
-            try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try audioSession.setMode(AVAudioSessionModeMeasurement)
+            try audioSession.setCategory(AVAudioSessionCategoryRecord)
             try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
         } catch {
             print("audioSession properties weren't set because of an error.")
@@ -228,12 +239,10 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
 
     }
 
-
     func pauseSpeech() {
         speechSynthesizer.pauseSpeaking(at: AVSpeechBoundary.word)
 
     }
-
 
     func stopSpeech() {
         speechSynthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)

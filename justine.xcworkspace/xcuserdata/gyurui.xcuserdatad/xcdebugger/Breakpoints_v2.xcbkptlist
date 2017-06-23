@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "justine/ViewController.swift"
-            timestampString = "519915433.348849"
+            timestampString = "519922282.868897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "pauseSpeech()"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "justine/ViewController.swift"
-            timestampString = "519915433.348849"
+            timestampString = "519922282.868897"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "stopSpeech()"
             landmarkType = "7">
          </BreakpointContent>
