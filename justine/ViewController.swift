@@ -59,8 +59,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
         }
     }
     @IBAction func proba(_ sender: Any) {
-        self.answerTextView.text = "Oké kinyitom neked az ajtót."
-        self.speak()
+
     }
 
     @IBAction func microphoneTapped(_ sender: AnyObject) {
@@ -76,6 +75,15 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             } catch let error as NSError {
                 print("audioSession error: \(error.localizedDescription)")
             }
+            
+            NetworkManager.sharedInstance.postText(speechText: questionTextView.text, success: { (answer) in
+                self.answerTextView.text = answer
+                self.speak()
+            }) { (error) in
+                self.answerTextView.text = "Valami hiba tortent"
+                self.speak()
+            }
+            
         } else {
             startRecording()
             print(speechSynthesizer.isSpeaking)
