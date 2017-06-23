@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A368F187433A596B6C73A57 /* Pods_justine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5937EA9D964D6B123505804D /* Pods_justine.framework */; };
 		8C46D0E51EFD0610001361F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46D0E41EFD0610001361F0 /* AppDelegate.swift */; };
 		8C46D0E71EFD0610001361F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46D0E61EFD0610001361F0 /* ViewController.swift */; };
 		8C46D0EA1EFD0610001361F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C46D0E81EFD0610001361F0 /* Main.storyboard */; };
@@ -14,18 +15,23 @@
 		8C46D0EF1EFD0610001361F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C46D0ED1EFD0610001361F0 /* LaunchScreen.storyboard */; };
 		8C46D0F71EFD0847001361F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46D0F61EFD0846001361F0 /* SettingsViewController.swift */; };
 		8C46D0F91EFD0850001361F0 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46D0F81EFD0850001361F0 /* CustomSlider.swift */; };
+		8C46D0FB1EFD13EA001361F0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46D0FA1EFD13EA001361F0 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2BBC0734BC6B74500B9A97C3 /* Pods-justine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-justine.release.xcconfig"; path = "Pods/Target Support Files/Pods-justine/Pods-justine.release.xcconfig"; sourceTree = "<group>"; };
+		5937EA9D964D6B123505804D /* Pods_justine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_justine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C46D0E11EFD0610001361F0 /* justine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = justine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C46D0E41EFD0610001361F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C46D0E61EFD0610001361F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C46D0E91EFD0610001361F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C46D0EB1EFD0610001361F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C46D0EE1EFD0610001361F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8C46D0F01EFD0610001361F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C46D0F01EFD0610001361F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = justine/Info.plist; sourceTree = "<group>"; };
 		8C46D0F61EFD0846001361F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8C46D0F81EFD0850001361F0 /* CustomSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		8C46D0FA1EFD13EA001361F0 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DCBA65C187E01948F0945657 /* Pods-justine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-justine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-justine/Pods-justine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +39,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A368F187433A596B6C73A57 /* Pods_justine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0715F7068D1278CF94D9314E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5937EA9D964D6B123505804D /* Pods_justine.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		277300F55694265EF99C6A11 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DCBA65C187E01948F0945657 /* Pods-justine.debug.xcconfig */,
+				2BBC0734BC6B74500B9A97C3 /* Pods-justine.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8C46D0D81EFD060F001361F0 = {
 			isa = PBXGroup;
 			children = (
 				8C46D0E31EFD0610001361F0 /* justine */,
+				8C46D0FC1EFD13F3001361F0 /* Supporting files */,
 				8C46D0E21EFD0610001361F0 /* Products */,
+				277300F55694265EF99C6A11 /* Pods */,
+				0715F7068D1278CF94D9314E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,12 +89,20 @@
 				8C46D0E61EFD0610001361F0 /* ViewController.swift */,
 				8C46D0F61EFD0846001361F0 /* SettingsViewController.swift */,
 				8C46D0F81EFD0850001361F0 /* CustomSlider.swift */,
+				8C46D0FA1EFD13EA001361F0 /* NetworkManager.swift */,
 				8C46D0E81EFD0610001361F0 /* Main.storyboard */,
 				8C46D0EB1EFD0610001361F0 /* Assets.xcassets */,
 				8C46D0ED1EFD0610001361F0 /* LaunchScreen.storyboard */,
-				8C46D0F01EFD0610001361F0 /* Info.plist */,
 			);
 			path = justine;
+			sourceTree = "<group>";
+		};
+		8C46D0FC1EFD13F3001361F0 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				8C46D0F01EFD0610001361F0 /* Info.plist */,
+			);
+			name = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +112,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C46D0F31EFD0610001361F0 /* Build configuration list for PBXNativeTarget "justine" */;
 			buildPhases = (
+				BB832AF907CEE5F8735B8C95 /* [CP] Check Pods Manifest.lock */,
 				8C46D0DD1EFD0610001361F0 /* Sources */,
 				8C46D0DE1EFD0610001361F0 /* Frameworks */,
 				8C46D0DF1EFD0610001361F0 /* Resources */,
+				7DABC169AC2D8FE39C78B85E /* [CP] Embed Pods Frameworks */,
+				0D49F5E9D5E6F58AE55853CA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -102,7 +140,7 @@
 				TargetAttributes = {
 					8C46D0E01EFD0610001361F0 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 36HHSH6BD2;
+						DevelopmentTeam = T3N6Q5M62M;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -138,6 +176,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D49F5E9D5E6F58AE55853CA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-justine/Pods-justine-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DABC169AC2D8FE39C78B85E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-justine/Pods-justine-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB832AF907CEE5F8735B8C95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8C46D0DD1EFD0610001361F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -145,6 +231,7 @@
 			files = (
 				8C46D0E71EFD0610001361F0 /* ViewController.swift in Sources */,
 				8C46D0E51EFD0610001361F0 /* AppDelegate.swift in Sources */,
+				8C46D0FB1EFD13EA001361F0 /* NetworkManager.swift in Sources */,
 				8C46D0F71EFD0847001361F0 /* SettingsViewController.swift in Sources */,
 				8C46D0F91EFD0850001361F0 /* CustomSlider.swift in Sources */,
 			);
@@ -269,9 +356,10 @@
 		};
 		8C46D0F41EFD0610001361F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCBA65C187E01948F0945657 /* Pods-justine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 36HHSH6BD2;
+				DEVELOPMENT_TEAM = T3N6Q5M62M;
 				INFOPLIST_FILE = justine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oncehack.justine;
@@ -282,9 +370,10 @@
 		};
 		8C46D0F51EFD0610001361F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BBC0734BC6B74500B9A97C3 /* Pods-justine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 36HHSH6BD2;
+				DEVELOPMENT_TEAM = T3N6Q5M62M;
 				INFOPLIST_FILE = justine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.oncehack.justine;
