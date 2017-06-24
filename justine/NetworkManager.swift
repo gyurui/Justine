@@ -18,11 +18,10 @@ class NetworkManager: NSObject {
     
     func postText(speechText: String, success sucessHandler: @escaping (String) -> (), failure faiulerHandler: @escaping (NSError) -> () ) {
         
-        var parameters: Parameters = ["text" : speechText]
         
-        if speechText == "szia" || speechText == "Szia" {
-            parameters = ["text" : "hi"]
-        }
+        
+        var parameters: Parameters = ["text" : speechText]
+        print(parameters)
         
         Alamofire.request("http://207.154.248.136/botman/", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200...201)
             .validate(contentType: ["text/html"])

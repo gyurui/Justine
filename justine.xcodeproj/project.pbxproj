@@ -107,6 +107,13 @@
 		379635481EFD5DE7009AA75C /* justin-voiceover-animation0097.png in Resources */ = {isa = PBXBuildFile; fileRef = 379634E61EFD5DE7009AA75C /* justin-voiceover-animation0097.png */; };
 		379635491EFD5DE7009AA75C /* justin-voiceover-animation0098.png in Resources */ = {isa = PBXBuildFile; fileRef = 379634E71EFD5DE7009AA75C /* justin-voiceover-animation0098.png */; };
 		6A368F187433A596B6C73A57 /* Pods_justine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5937EA9D964D6B123505804D /* Pods_justine.framework */; };
+		8C1B96211EFDD2FE00463350 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B96201EFDD2FE00463350 /* GameViewController.swift */; };
+		8C1B96231EFDD30500463350 /* GameElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B96221EFDD30500463350 /* GameElements.swift */; };
+		8C1B96251EFDD30C00463350 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B96241EFDD30C00463350 /* GameScene.swift */; };
+		8C1B96271EFDD31300463350 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B96261EFDD31300463350 /* Actions.sks */; };
+		8C1B96291EFDD31900463350 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B96281EFDD31900463350 /* GameScene.sks */; };
+		8C1B962B1EFDD32600463350 /* CoinSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B962A1EFDD32600463350 /* CoinSound.mp3 */; };
+		8C1B962D1EFDD32D00463350 /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 8C1B962C1EFDD32D00463350 /* player.atlas */; };
 		8C46D0E51EFD0610001361F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46D0E41EFD0610001361F0 /* AppDelegate.swift */; };
 		8C46D0E71EFD0610001361F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C46D0E61EFD0610001361F0 /* ViewController.swift */; };
 		8C46D0EA1EFD0610001361F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C46D0E81EFD0610001361F0 /* Main.storyboard */; };
@@ -219,6 +226,13 @@
 		379634E61EFD5DE7009AA75C /* justin-voiceover-animation0097.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "justin-voiceover-animation0097.png"; sourceTree = "<group>"; };
 		379634E71EFD5DE7009AA75C /* justin-voiceover-animation0098.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "justin-voiceover-animation0098.png"; sourceTree = "<group>"; };
 		5937EA9D964D6B123505804D /* Pods_justine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_justine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C1B96201EFDD2FE00463350 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		8C1B96221EFDD30500463350 /* GameElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameElements.swift; sourceTree = "<group>"; };
+		8C1B96241EFDD30C00463350 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		8C1B96261EFDD31300463350 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		8C1B96281EFDD31900463350 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		8C1B962A1EFDD32600463350 /* CoinSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CoinSound.mp3; sourceTree = "<group>"; };
+		8C1B962C1EFDD32D00463350 /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
 		8C46D0E11EFD0610001361F0 /* justine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = justine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C46D0E41EFD0610001361F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C46D0E61EFD0610001361F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -390,7 +404,14 @@
 			children = (
 				8C46D0E41EFD0610001361F0 /* AppDelegate.swift */,
 				8C46D0E61EFD0610001361F0 /* ViewController.swift */,
+				8C1B96281EFDD31900463350 /* GameScene.sks */,
+				8C1B96261EFDD31300463350 /* Actions.sks */,
+				8C1B96241EFDD30C00463350 /* GameScene.swift */,
 				8C46D0F61EFD0846001361F0 /* SettingsViewController.swift */,
+				8C1B96221EFDD30500463350 /* GameElements.swift */,
+				8C1B96201EFDD2FE00463350 /* GameViewController.swift */,
+				8C1B962A1EFDD32600463350 /* CoinSound.mp3 */,
+				8C1B962C1EFDD32D00463350 /* player.atlas */,
 				8C46D0F81EFD0850001361F0 /* CustomSlider.swift */,
 				8C46D0FA1EFD13EA001361F0 /* NetworkManager.swift */,
 				379634831EFD5DBE009AA75C /* SpeakerAnimView.swift */,
@@ -494,6 +515,7 @@
 				379635021EFD5DE7009AA75C /* justin-voiceover-animation0027.png in Resources */,
 				379635191EFD5DE7009AA75C /* justin-voiceover-animation0050.png in Resources */,
 				3796350B1EFD5DE7009AA75C /* justin-voiceover-animation0036.png in Resources */,
+				8C1B962B1EFDD32600463350 /* CoinSound.mp3 in Resources */,
 				379634E91EFD5DE7009AA75C /* justin-voiceover-animation0002.png in Resources */,
 				379635301EFD5DE7009AA75C /* justin-voiceover-animation0073.png in Resources */,
 				3796351F1EFD5DE7009AA75C /* justin-voiceover-animation0056.png in Resources */,
@@ -516,6 +538,7 @@
 				379635431EFD5DE7009AA75C /* justin-voiceover-animation0092.png in Resources */,
 				379635491EFD5DE7009AA75C /* justin-voiceover-animation0098.png in Resources */,
 				3796353A1EFD5DE7009AA75C /* justin-voiceover-animation0083.png in Resources */,
+				8C1B96271EFDD31300463350 /* Actions.sks in Resources */,
 				3796353E1EFD5DE7009AA75C /* justin-voiceover-animation0087.png in Resources */,
 				379635311EFD5DE7009AA75C /* justin-voiceover-animation0074.png in Resources */,
 				379634F41EFD5DE7009AA75C /* justin-voiceover-animation0013.png in Resources */,
@@ -541,6 +564,7 @@
 				379634F11EFD5DE7009AA75C /* justin-voiceover-animation0010.png in Resources */,
 				3796351D1EFD5DE7009AA75C /* justin-voiceover-animation0054.png in Resources */,
 				379635061EFD5DE7009AA75C /* justin-voiceover-animation0031.png in Resources */,
+				8C1B96291EFDD31900463350 /* GameScene.sks in Resources */,
 				3796352A1EFD5DE7009AA75C /* justin-voiceover-animation0067.png in Resources */,
 				379635261EFD5DE7009AA75C /* justin-voiceover-animation0063.png in Resources */,
 				3796350D1EFD5DE7009AA75C /* justin-voiceover-animation0038.png in Resources */,
@@ -572,6 +596,7 @@
 				379635171EFD5DE7009AA75C /* justin-voiceover-animation0048.png in Resources */,
 				379635321EFD5DE7009AA75C /* justin-voiceover-animation0075.png in Resources */,
 				379635131EFD5DE7009AA75C /* justin-voiceover-animation0044.png in Resources */,
+				8C1B962D1EFDD32D00463350 /* player.atlas in Resources */,
 				3796353F1EFD5DE7009AA75C /* justin-voiceover-animation0088.png in Resources */,
 				3796353C1EFD5DE7009AA75C /* justin-voiceover-animation0085.png in Resources */,
 			);
@@ -632,9 +657,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1B96211EFDD2FE00463350 /* GameViewController.swift in Sources */,
 				8C46D0E71EFD0610001361F0 /* ViewController.swift in Sources */,
 				8C46D0E51EFD0610001361F0 /* AppDelegate.swift in Sources */,
+				8C1B96251EFDD30C00463350 /* GameScene.swift in Sources */,
 				379634841EFD5DBE009AA75C /* SpeakerAnimView.swift in Sources */,
+				8C1B96231EFDD30500463350 /* GameElements.swift in Sources */,
 				8C46D0FB1EFD13EA001361F0 /* NetworkManager.swift in Sources */,
 				8C46D0F71EFD0847001361F0 /* SettingsViewController.swift in Sources */,
 				8C46D0F91EFD0850001361F0 /* CustomSlider.swift in Sources */,

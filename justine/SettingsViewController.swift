@@ -203,8 +203,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    
-    
     // MARK: UIPickerView method implementation
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
