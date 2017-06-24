@@ -45,7 +45,6 @@ class SpeakerAnimView: UIView, CAAnimationDelegate {
         imageView.contentMode = .scaleAspectFit
         self.addSubview(imageView)
         imageView.image = UIImage(named: "justin-voiceover-animation0001")
-        
     }
     
     func setAnchorPoint(anchorPoint: CGPoint, forView view: UIView) {
@@ -71,7 +70,7 @@ class SpeakerAnimView: UIView, CAAnimationDelegate {
         self.imageView.animationDuration = 0.5
         self.imageView.animationRepeatCount = 1
         self.imageView.startAnimating()
-        _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(loopAnimation), userInfo: nil, repeats: false)
+        _ = Timer.scheduledTimer(timeInterval: 0.4, target: self, selector: #selector(loopAnimation), userInfo: nil, repeats: false)
     }
     
     func loopAnimation() {

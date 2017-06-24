@@ -25,13 +25,15 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
     private let audioEngine = AVAudioEngine()
 
     var player: AVAudioPlayer!
-    let isSent: Bool = false
-
+    var isSent: Bool = false
+    var isGame: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         microphoneButton.isEnabled = false
         speechRecognizer.delegate = self
+        speechSynthesizer.delegate = self
         
         let audioSession = AVAudioSession.sharedInstance()  //2
         do {
@@ -47,15 +49,12 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             switch authStatus {
             case .authorized:
                 isButtonEnabled = true
-
             case .denied:
                 isButtonEnabled = false
                 print("User denied access to speech recognition")
-
             case .restricted:
                 isButtonEnabled = false
                 print("Speech recognition restricted on this device")
-
             case .notDetermined:
                 isButtonEnabled = false
                 print("Speech recognition not yet authorized")
@@ -74,7 +73,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             speakerAnim.stopAnimation()
             recognitionRequest?.endAudio()
             microphoneButton.isEnabled = false
-            
+            self.isSent = true
             let audioSession = AVAudioSession.sharedInstance()  //2
             do {
                 try audioSession.setCategory(AVAudioSessionCategoryPlayback)
@@ -85,7 +84,15 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             }
             
             if self.questionTextView.text != "" || self.questionTextView.text != nil  {
-                NetworkManager.sharedInstance.postText(speechText: questionTextView.text, success: { (answer) in
+                
+                if self.questionTextView.text == "Justin játszanék valamit" || self.questionTextView.text == "Játszanék" {
+                    self.isGame = true
+                    self.answerTextView.text = "Flappy BigFish elindítva."
+                    self.speak()
+                    return
+                }
+                
+                NetworkManager.sharedInstance.postText(speechText: self.questionTextView.text, success: { (answer) in
                     self.answerTextView.text = answer
                     self.speak()
                 }) { (error) in
@@ -96,8 +103,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
                 self.answerTextView.text = "Bocsi nem értettem mit mondtál?"
                 self.speak()
             }
-            
-
             
         } else {
             startRecording()
@@ -135,7 +140,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
         }
 
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()  //3
-
         guard let inputNode = audioEngine.inputNode else {
             fatalError("Audio engine has no input node")
         }  //4
@@ -145,17 +149,20 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
         } //5
 
         recognitionRequest.shouldReportPartialResults = true  //6
-
         recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in  //7
 
             var isFinal = false  //8
-
             if result != nil {
-
-                self.questionTextView.text = result?.bestTranscription.formattedString  //9
-                isFinal = (result?.isFinal)!
+                if self.isSent {
+                    self.isSent = false
+                    //self.questionTextView.text = result?.bestTranscription.formattedString  //9
+                    isFinal = (result?.isFinal)!
+                } else {
+                    self.questionTextView.text = result?.bestTranscription.formattedString  //9
+                    isFinal = (result?.isFinal)!
+                }
             }
-
+            
             if error != nil || isFinal {  //10
                 self.audioEngine.stop()
                 inputNode.removeTap(onBus: 0)
@@ -171,7 +178,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
         inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
             self.recognitionRequest?.append(buffer)
         }
-
         audioEngine.prepare()  //12
 
         do {
@@ -181,7 +187,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
         }
 
         questionTextView.text = "Hallgatlak! ;)"
-
     }
 
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
@@ -193,6 +198,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
     }
 
     func speak() {
+        self.microphoneButton.isUserInteractionEnabled = false
         if !speechSynthesizer.isSpeaking {
             /**
              let speechUtterance = AVSpeechUtterance(string: tvEditor.text)
@@ -204,7 +210,6 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             let rate = AVSpeechUtteranceDefaultSpeechRate
             let pitch: Float = 1.0
             let volume: Float = 1.0
-
             let textParagraphs = answerTextView.text.components(separatedBy: "\n")
 
             let totalUtterances = textParagraphs.count
@@ -218,29 +223,36 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
                 speechUtterance.pitchMultiplier = pitch
                 speechUtterance.volume = volume
                 speechUtterance.postUtteranceDelay = 0.005
-
+                
                 let voice = AVSpeechSynthesisVoice(language: "hu-HU")
                 speechUtterance.voice = voice
-
+                
                 totalTextLength = totalTextLength + pieceOfText.utf16.count
-
                 speechSynthesizer.speak(speechUtterance)
             }
-
-
         } else {
             speechSynthesizer.continueSpeaking()
         }
-
+    }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        print("Finish Speech")
+        self.microphoneButton.isUserInteractionEnabled = true
+        if isGame {
+            self.isGame = false
+            performSegue(withIdentifier: "pushGame", sender: nil)
+        }
+    }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance) {
+        print("Pause Speech")
     }
 
     func pauseSpeech() {
         speechSynthesizer.pauseSpeaking(at: AVSpeechBoundary.word)
-
     }
 
     func stopSpeech() {
         speechSynthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
     }
-
 }
