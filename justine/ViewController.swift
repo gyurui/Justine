@@ -242,6 +242,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVSpeechSynt
             self.isGame = false
             performSegue(withIdentifier: "pushGame", sender: nil)
         }
+        performSegue(withIdentifier: "pushGame", sender: nil)
+
     }
     
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didPause utterance: AVSpeechUtterance) {

@@ -41,6 +41,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         createScene()
+        self.physicsWorld.gravity = CGVector.init(dx: 0, dy: 10)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -71,11 +72,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             moveAndRemove = SKAction.sequence([movePipes, removePipes])
             
             bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            bird.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+            bird.physicsBody?.applyImpulse(CGVector(dx: 0, dy: -40))
         } else {
             if died == false {
                 bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-                bird.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 40))
+                bird.physicsBody?.applyImpulse(CGVector(dx: 0, dy: -40))
+            } else {
+                bird.physicsBody?.applyImpulse(CGVector(dx: 6, dy: 0))
             }
         }
         
@@ -211,14 +214,3 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-

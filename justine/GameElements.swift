@@ -27,9 +27,9 @@ extension GameScene{
         bird.physicsBody?.categoryBitMask = CollisionBitMask.birdCategory
         bird.physicsBody?.collisionBitMask = CollisionBitMask.pillarCategory | CollisionBitMask.groundCategory
         bird.physicsBody?.contactTestBitMask = CollisionBitMask.pillarCategory | CollisionBitMask.flowerCategory | CollisionBitMask.groundCategory
+        
         bird.physicsBody?.affectedByGravity = false
         bird.physicsBody?.isDynamic = true
-        
         return bird
     }
     
@@ -44,7 +44,7 @@ extension GameScene{
     }
     
     func createQuitBtn() {
-        quitBtn = SKSpriteNode(imageNamed: "pause")
+        quitBtn = SKSpriteNode(imageNamed: "quit")
         quitBtn.size = CGSize(width:100, height:100)
         quitBtn.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 - 60)
         quitBtn.zPosition = 6
@@ -97,8 +97,8 @@ extension GameScene{
     func createLogo() {
         logoImg = SKSpriteNode()
         logoImg = SKSpriteNode(imageNamed: "logo")
-        logoImg.size = CGSize(width: 272, height: 65)
-        logoImg.position = CGPoint(x:self.frame.midX, y:self.frame.midY + 100)
+        logoImg.size = CGSize(width: 260, height: 188)
+        logoImg.position = CGPoint(x:self.frame.midX, y:self.frame.midY + 110)
         logoImg.setScale(0.5)
         self.addChild(logoImg)
         logoImg.run(SKAction.scale(to: 1.0, duration: 0.3))
